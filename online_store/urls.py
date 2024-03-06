@@ -4,8 +4,6 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-
-
 urlpatterns = [
     path('', views.store_index, name='store_index'),
     path('client/<int:client_id>/', views.client, name='client'),
