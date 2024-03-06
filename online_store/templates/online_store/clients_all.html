@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %} All clients {% endblock %}
+
+{% block content %}
+    {% if clients %}
+        <h2>Все клиенты:</h2>
+        <table>
+            {% for client in clients %}
+                <tr>
+                    <td><a href="{% url 'client' client.pk %}">{{ client.name }}</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <h2>Записи о клиентах отсутвуют...</h2>
+    {% endif %}
+{% endblock %}

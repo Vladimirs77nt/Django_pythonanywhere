@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ client.id }}{% endblock %}
+
+{% block content %}
+<h4>Клиент: {{ client.name }}</h4>
+    <p>Email: {{ client.email }}</р>
+    <p>Тел.: {{ client.telephone }}</p>
+    <p>Адрес: {{ client.address }}</p>
+    {% if orders %}
+        <a href="{% url 'orders_by_client' client.pk %}">заказы клиента (без сортировки)</a><br>
+        <a href="{% url 'orders_by_client_sort' client.pk %}">заказы клиента (с сортировкой = 7 дней / 30 дней / 365 дней)</a><br>
+    {% endif %}
+{% endblock %}

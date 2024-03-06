@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Заказы клиента: {{ client.id }}{% endblock %}
+
+{% block content %}
+<h4>Клиент: {{ client.name }}</h4>
+
+    <h5>Заказы клиента за последние 7 дней (неделю):</h5>
+    {% if orders_7 %}
+        <ul>
+        {% for order in orders_7 %}
+            <li>Заказ: {{ order.id }}</li>
+            <ul>
+            {% for item in order.products.all %}
+                <li>Товар: {{ item.name }}</li> 
+            {% endfor %}   
+            <p>Сумма заказа: {{ order.total_price }}</p>
+            <p>Дата заказа: {{ order.date_ordered }}</p>
+            </ul>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <ul>нет заказов...</ul>
+    {% endif %}
+
+    <h5>Заказы клиента за последние 30 дней (месяц):</h5>
+    {% if orders_30 %}
+        <ul>
+        {% for order in orders_30 %}
+            <li>Заказ: {{ order.id }}</li>
+            <ul>
+            {% for item in order.products.all %}
+                <li>Товар: {{ item.name }}</li> 
+            {% endfor %}   
+            <p>Сумма заказа: {{ order.total_price }}</p>
+            <p>Дата заказа: {{ order.date_ordered }}</p>
+            </ul>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <ul>нет заказов...</ul>
+    {% endif %}
+
+    <h5>Заказы клиента за последние 365 дней (год):</h5>
+    {% if orders_365 %}
+        <ul>
+        {% for order in orders_365 %}
+            <li>Заказ: {{ order.id }}</li>
+            <ul>
+            {% for item in order.products.all %}
+                <li>Товар: {{ item.name }}</li> 
+            {% endfor %}   
+            <p>Сумма заказа: {{ order.total_price }}</p>
+            <p>Дата заказа: {{ order.date_ordered }}</p>
+            </ul>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <ul>нет заказов...</ul>
+    {% endif %}
+
+{% endblock %}
