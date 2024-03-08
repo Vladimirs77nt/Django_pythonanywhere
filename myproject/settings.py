@@ -86,7 +86,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'vladimirs77$default',
-        'USER': 'vladimirs77$',
+        'USER': 'vladimirs77',
         'PASSWORD': os.getenv('MYSQL_PASSWORD'),
         'HOST': 'vladimirs77.mysql.pythonanywhere-services.com',
         'OPTIONS': {
@@ -165,11 +165,6 @@ LOGGING = {
         'django': {
             'handlers': ['console', 'file'],
             'level': 'INFO',
-        },
-        'online_store': {
-            'handlers': ['console','file'],
-            'level': 'DEBUG',
-            'propagate': True,
         },
     },
 }
